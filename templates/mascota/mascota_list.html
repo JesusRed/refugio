@@ -7,12 +7,12 @@
     <title>Listado</title>
 </head>
 <body>
-    
     {% block content %}
+    <br>
     <table class="hover unstriped">
         <thead>
           <tr>
-            <th width="200">#</th>
+            <th width="100">#</th>
             <th>Nombre</th>
             <th width="150">Sexo</th>
             <th width="150">Edad</th>
@@ -27,7 +27,7 @@
             <td>{{mascota.id}}</td>
             <td>{{mascota.nombre}}</td>
             <td>{{mascota.sexo}}</td>
-            <td>{{mascota.edad}}</td>
+            <td>{{mascota.edad_aproximada}}</td>
             <td>{{mascota.fecha_rescate}}</td>
             <td>{{mascota.persona.nombre}} {{mascota.persona.apellidos}}</td>
           </tr>
