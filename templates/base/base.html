@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    {% block extrahead %} {% endblock %}
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Document{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+  </head>
+
+  <body>
+    {% block navbar%}
+    <div class="grid-container">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Home</li>
+            <li>
+              <a href="#">Mascotas</a>
+              <ul class="menu vertical">
+                <li><a href="#">Registrar</a></li>
+                <li><a href="#">Listar</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Adopciones</a>
+              <ul class="menu vertical">
+                <li><a href="#">Solicitar</a></li>
+                <li><a href="#">Listar Solicitudes</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li><a href="#">Codigo Facilito</a></li>
+            <li>
+              <a href="#">Opciones</a>
+              <ul class="menu vertical">
+                <li><a href="#">Salir</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endblock %} {% block content %}
+      <h4>Bloque de contenido</h4>
+      {% endblock %} {% block footer %} {% endblock %}
+    </div>
+
+    <script src="{% static 'js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'js/vendor/what-input.js' %}"></script>
+    <script src="{% static 'js/vendor/foundation.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block extrajs %} {% endblock %}
+  </body>
+</html>
