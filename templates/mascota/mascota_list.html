@@ -1,49 +1,52 @@
 {% extends 'base/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado</title>
-</head>
-<body>
-    {% block content %}
-    <br>
-    <table class="hover unstriped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th width="200">Nombre</th>
-            <th>Sexo</th>
-            <th>Edad</th>
-            <th>Fecha de rescate</th>
-            <th width="200">Adoptante</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {% if object_list %}
-            {% for mascota in object_list %}
-            <td>{{mascota.id}}</td>
-            <td>{{mascota.nombre}}</td>
-            <td>{{mascota.sexo}}</td>
-            <td>{{mascota.edad_aproximada}}</td>
-            <td>{{mascota.fecha_rescate}}</td>
-            <td>{{mascota.persona.nombre}} {{mascota.persona.apellidos}}</td>
-            <td>
-              <a class="button warning" href="{% url 'mascota:mascota_editar' mascota.id %}">Editar</a>
-              <a class="button alert" href="{% url 'mascota:mascota_eliminar' mascota.id %}">Eliminar</a>
-            </td>
-          </tr>
-          {% endfor %}
 
-          {% else %}
-          <h1>NO hay registros</h1>
-          {% endif %}
-        </tbody>
-      </table>
-    {% endblock %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado</title>
+</head>
+
+<body>
+  {% block content %}
+  <br>
+  <table class="hover unstriped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th width="200">Nombre</th>
+        <th>Sexo</th>
+        <th>Edad</th>
+        <th>Fecha de rescate</th>
+        <th width="200">Adoptante</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% if object_list %}
+        {% for mascota in object_list %}
+        <td>{{mascota.id}}</td>
+        <td>{{mascota.nombre}}</td>
+        <td>{{mascota.sexo}}</td>
+        <td>{{mascota.edad_aproximada}}</td>
+        <td>{{mascota.fecha_rescate}}</td>
+        <td>{{mascota.persona.nombre}} {{mascota.persona.apellidos}}</td>
+        <td>
+          <a class="button warning" href="{% url 'mascota:mascota_editar' mascota.id %}">Editar</a>
+          <a class="button alert" href="{% url 'mascota:mascota_eliminar' mascota.id %}">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+
+      {% else %}
+      <h1>NO hay registros</h1>
+      {% endif %}
+    </tbody>
+  </table>
+  {% endblock %}
 
 </body>
+
 </html>
