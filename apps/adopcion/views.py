@@ -65,19 +65,19 @@ class SolicitudUpdate(UpdateView):
         context['id'] = pk
         return context
 
-        def post(self, request, *args, **kwargs):
-            self.object = self.get_object
-            id_solicitud = kwargs['pk']
-            solicitud = self.model.objects.get(id=id_solicitud)
-            persona = self.second_model.objects.get(id=solicitud.persona_id)
-            form = self.form_class(request.POST, instance=solicitud)
-            form2 = self.second_form_class(request.POST, instance=persona)
-            if form.is_valid() and form2.is_valid():
-                form.save()
-                form2.save()
-                return HttpResponseRedirect(self.get-success_url())
-            else:
-                return HttpResponseRedirect(self.get_success_url())
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object
+        id_solicitud = kwargs['pk']
+        solicitud = self.model.objects.get(id=id_solicitud)
+        persona = self.second_model.objects.get(id=solicitud.persona_id)
+        form = self.form_class(request.POST, instance=solicitud)
+        form2 = self.second_form_class(request.POST, instance=persona)
+        if form.is_valid() and form2.is_valid():
+            form.save()
+            form2.save()
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return HttpResponseRedirect(self.get_success_url())
 
 
 class SolicitudDelete(DeleteView):

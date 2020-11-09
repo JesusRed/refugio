@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	{% block content %}
+	<form method="post">
+		{% csrf_token %}
+		<br />
+		<div class="grid-container">
+			<fieldset class="fieldset">
+				<legend>Registro de usuario</legend>
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label>Nombre</label>
+						<input name="first_name" type="text">
+					</div>
+					<div class="medium-6 cell">
+						<label>Apellidos</label>
+						<input name="last_name" type="text">
+					</div>
+				</div>
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label>Nombre de usuario</label>
+						<input placeholder="Únicamente letras, dígitos y @/./+/-/_" name="username" type="text">
+					</div>
+					<div class="medium-6 cell">
+						<label>Correo</label>
+						<input name="email" type="email">
+					</div>
+				</div>
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label>Contraseña</label>
+						<input placeholder="Al menos 8 caracteres, no solo numeros" name="password1" type="password">
+					</div>
+					<div class="medium-6 cell">
+						<label>Confirmar Contraseña</label>
+						<input name="password2" type="password">
+					</div>
+				</div>
+			</fieldset>
+			<br>
+			<div class="row grid-x grid-padding-x">
+				<div class="medium-12 cell medium-centered text-center columns">
+					<button type="submit" class="success button">Guardar</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	{% endblock %}
+</body>
+</body>
+
+</div>
+
+</html>
