@@ -3,26 +3,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block title %} Mascotas {% endblock %}
 </head>
 
 <body>
+    {% block navbar%} {% endblock %} {% block content %}
 
-    {% block navbar%}
-    {% endblock %}
-    {% block content %}
-    <form class="log-in-form">
-        <h4 class="text-center">Log in with you email account</h4>
-        <label>Email
-            <input type="email" placeholder="somebody@example.com">
-        </label>
-        <label>Password
-            <input type="password" placeholder="Password">
-        </label>
-        <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-        <p><input type="submit" class="button expanded" value="Log in"></input></p>
+    <br />
+    <form method="post">
+        {% csrf_token %}
+        <div class="grid-container">
+            <div class="row grid-x grid-padding-x">
+                <div class="small-3"></div>
+                <div class="small-6">
+                    <fieldset class="fieldset">
+                        <legend id="legend">Iniciar sesion</legend>
+                        <div class="row grid-x grid-padding-x">
+                            <div class="medium-3"></div>
+                            <div class="medium-6 cell medium-centered columns">
+                                <label for="username">Nombre de usuario:</label>
+                                <input type="text" name="username" />
+                            </div>
+                            <div class="medium-3"></div>
+                        </div>
+                        <div class="row grid-x grid-padding-x">
+                            <div class="medium-3"></div>
+                            <div class="medium-6 cell medium-centered columns">
+                                <label>Contraseña:
+                                    <input name="password" type="password" aria-describedby="passwordHelpText" />
+                                </label>
+                                <a class="help-text" id="passwordhelp">¿Olvidó la contraseña?</a>
+                            </div>
+                            <div class="medium-3"></div>
+                        </div>
+                        <br />
+                        <div class="row grid-x grid-padding-x">
+                            <div class="medium-12 cell medium-centered text-center columns">
+                                <button type="submit" class="button">Entrar</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="small-3"></div>
+            </div>
+        </div>
     </form>
     {% endblock %}
 </body>
