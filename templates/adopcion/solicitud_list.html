@@ -32,8 +32,8 @@
 				<td>{{ solicitud.razones }}</td>
 
 				<td>
-					<a class="button warning" href="#">Editar</a>
-					<a class="button alert" href="#">Eliminar</a>
+					<a class="button warning" href="{% url 'adopcion:solicitud_editar' solicitud.id %}">Editar</a>
+					<a class="button alert" href="{% url 'adopcion:solicitud_eliminar' solicitud.id %}">Eliminar</a>
 				</td>
 			</tr>
 			{% endfor %}

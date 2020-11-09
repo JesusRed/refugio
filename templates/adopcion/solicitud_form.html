@@ -1,74 +1,73 @@
 {% extends 'base/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>FOrm</title>
 </head>
+
 <body>
 	{% block content %}
-<form method="post">
-	{% csrf_token %}
-	{{ form.as_p}}
-	{{ form2.as_p }}
-
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="input-group-label">
-				<label for="{{form2.nombre.name}}">{{form2.nombre.label}}</label>
-				{{form2.nombre}}
+	<form method="post">
+		{% csrf_token %}
+		<br />
+		<div class="grid-container">
+			<fieldset class="fieldset">
+				<legend>Datos del adoptante</legend>
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label for="{{form2.nombre.name}}"> {{form2.nombre.label}} </label>
+						{{form2.nombre}}
+					</div>
+					<div class="medium-6 cell">
+						<label for="{{form2.nombre.apellidos}}"> {{form2.apellidos.label}} </label>
+						{{form2.apellidos}}
+					</div>
+				</div>
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label for="{{form2.edad.name}}"> {{form2.edad.label}} </label>
+						{{form2.edad}}
+					</div>
+					<div class="medium-6 cell">
+						<label for="{{form2.email.name}}"> {{form2.email.label}} </label>
+						{{form2.email}}
+					</div>
+				</div>
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label for="{{form2.telefono.name}}"> {{form2.telefono.label}} </label>
+						{{form2.telefono}}
+					</div>
+					<div class="medium-6 cell">
+						<label for="{{form2.domicilio.name}}"> {{form2.domicilio.label}} </label>
+						{{form2.domicilio}}
+					</div>
+				</div>
+			</fieldset>
+			<fieldset class="fieldset">
+				<legend>Motivos</legend>
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label for="{{form.numero_mascotas.name}}"> {{form.numero_mascotas.label}} </label>
+						{{form.numero_mascotas}}
+					</div>
+					<div class="medium-6 cell">
+						<label for="{{form.razones.name}}"> {{form.razones.label}} </label>
+						{{form.razones}}
+					</div>
+				</div>
+			</fieldset>
+			<br>
+			<div class="row grid-x grid-padding-x">
+				<div class="medium-12 cell medium-centered text-center columns">
+					<button type="submit" class="success button">Guardar</button>
+				</div>
 			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="input-group-label">
-				<label for="{{form2.nombre.apellidos}}">{{form2.apellidos.label}}</label>
-				{{form2.apellidos}}
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="input-group-label">
-				<label for="{{form2.edad.name}}">{{form2.edad.label}}</label>
-				{{form2.edad}}
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="input-group-label">
-				<label for="{{form2.email.name}}">{{form2.email.label}}</label>
-				{{form2.email}}
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="input-group-label">
-				<label for="{{form2.telefono.name}}">{{form2.telefono.label}}</label>
-				{{form2.telefono}}
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="input-group-label">
-				<label for="{{form2.domiclio.name}}">{{form2.domicilio.label}}</label>
-				{{form2.domicilio}}
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="form-group">
-				<label for="{{form.numero_mascotas.name}}">{{form.numero_mascotas.label}}</label>
-				{{form.numero_mascotas}}
-			</div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="form-group">
-				<label for="{{form.razones.name}}">{{form.razones.label}}</label>
-				{{form.razones}}
-			</div>
-		</div>
-	</div>
-	<div class="col-md-8 col-md-offset-2">
-		<div class="form-group">
-			<button class="btn btn-primary" type="submit">Guardar</button>
-		</div>
-	</div>
-</form>
-{% endblock %}
+	</form>
+	{% endblock %}
 </body>
+
 </html>
