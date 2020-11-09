@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+</head>
+<body>
+    
+    {% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <h3 class="subheader" >¿Desea eliminar el registro {{ mascota.nombre }}?</h3>
+        <button class="alert button" type="submit">Si, eliminar</button>
+        <a class="button secondary" href="{% url 'mascota:mascota_listar' %}">Cancelar</a>
+    </form>
+    {% endblock %}
+
+</body>
+</html>

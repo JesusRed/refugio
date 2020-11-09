@@ -12,12 +12,13 @@
     <table class="hover unstriped">
         <thead>
           <tr>
-            <th width="100">#</th>
-            <th>Nombre</th>
-            <th width="150">Sexo</th>
-            <th width="150">Edad</th>
-            <th width="150">Fecha de rescate</th>
-            <th width="150">Adoptante</th>
+            <th>#</th>
+            <th width="200">Nombre</th>
+            <th>Sexo</th>
+            <th>Edad</th>
+            <th>Fecha de rescate</th>
+            <th width="200">Adoptante</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,10 @@
             <td>{{mascota.edad_aproximada}}</td>
             <td>{{mascota.fecha_rescate}}</td>
             <td>{{mascota.persona.nombre}} {{mascota.persona.apellidos}}</td>
+            <td>
+              <a class="button warning" href="{% url 'mascota:mascota_editar' mascota.id %}">Editar</a>
+              <a class="button alert" href="{% url 'mascota:mascota_eliminar' mascota.id %}">Eliminar</a>
+            </td>
           </tr>
           {% endfor %}
 
