@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Listado</title>
 </head>
 
 <body>
   {% block content %}
-  <br>
+  <br />
   <table class="hover unstriped">
     <thead>
       <tr>
@@ -25,8 +25,7 @@
     </thead>
     <tbody>
       <tr>
-        {% if object_list %}
-        {% for mascota in object_list %}
+        {% if object_list %} {% for mascota in object_list %}
         <td>{{mascota.id}}</td>
         <td>{{mascota.nombre}}</td>
         <td>{{mascota.sexo}}</td>
@@ -38,15 +37,32 @@
           <a class="button alert" href="{% url 'mascota:mascota_eliminar' mascota.id %}">Eliminar</a>
         </td>
       </tr>
-      {% endfor %}
-
-      {% else %}
+      {% endfor %} {% else %}
       <h1>NO hay registros</h1>
       {% endif %}
     </tbody>
   </table>
-  {% endblock %}
 
+  <nav aria-label="Pagination">
+    <ul class="pagination text-center">
+      <li>
+        {% if page_obj.has_previous %}
+      <li class="pagination-previous">
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      </li>
+      {% endif %}
+      </li>
+      <li>
+        {% if page_obj.has_next %}
+      <li class="pagination-next">
+        <a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">Next</a>
+      </li>
+      {% endif %}
+      </li>
+    </ul>
+  </nav>
+
+  {% endblock %}
 </body>
 
 </html>
