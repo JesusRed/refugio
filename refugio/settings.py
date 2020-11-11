@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.adopcion',
     'apps.mascota',
     'apps.usuario',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
