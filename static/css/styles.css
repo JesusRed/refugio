@@ -1,21 +1,68 @@
-#buttonsheader, .top-bar{
+.top-bar,
+.top-bar ul {
   background-color: #638b7a;
-  color: azure;
+  color: white;
 }
 
-.submenu li{
-   background-color: #587c6d;
+.submenu li {
+  background-color: #587c6d;
 }
 
-a{
-    color: white;
+a {
+  color: white;
 }
 
-a:hover, a:visited, a:link, a:active{
-    color: #e6e6e6;
-    
+.dropdown.menu > li.is-active > a,
+a:hover,
+a:focus {
+  color: #e6e6e6;
 }
 
-.dropdown.menu .has-submenu.is-down-arrow>a::after{
-    border-color: #e6e6e6 transparent transparent;
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+  border-color: #e6e6e6 transparent transparent;
+}
+
+.callout.primary {
+  background-color: #d9d9d9;
+  background-image: url(https://images.unsplash.com/photo-1551564801-27052421ab3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+  background-position: center;
+}
+
+#titlesite {
+  color: white;
+}
+
+#titleblog {
+  color: #638b7a;
+}
+
+titleblog2 {
+  color: #587c6d;
+}
+
+img {
+  width: 700px;
+  height: 350px;
+}
+
+footer {
+  background-color: #638b7a;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.button, .button:hover, .button:hover, .button:focus{
+  border-radius: 2500px;
+  background-color: #638b7a;
 }
