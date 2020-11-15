@@ -3,53 +3,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    {% block extrahead %}
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block title %} Mascotas {% endblock %}
+    <title>Foundation | Welcome</title>
+    {% endblock %}
 </head>
 
 <body>
-    {% block navbar%} {% endblock %} {% block content %}
+    {% block content %}
+    <div class="callout large primary">
+        <div class="row column text-center">
+            <h1>PetFugio</h1>
+            <h2 class="subheader">Such a Simple Blog Layout</h2>
+        </div>
+    </div>
 
-    <br />
-    <form method="post">
-        {% csrf_token %}
-        <div class="grid-container">
-            <div class="row grid-x grid-padding-x">
-                <div class="small-3"></div>
-                <div class="small-6">
-                    <fieldset class="fieldset">
-                        <legend id="legend">Iniciar sesion</legend>
-                        <div class="row grid-x grid-padding-x">
-                            <div class="medium-3"></div>
-                            <div class="medium-6 cell medium-centered columns">
-                                <label for="username">Nombre de usuario:</label>
-                                <input type="text" name="username" />
-                            </div>
-                            <div class="medium-3"></div>
-                        </div>
-                        <div class="row grid-x grid-padding-x">
-                            <div class="medium-3"></div>
-                            <div class="medium-6 cell medium-centered columns">
-                                <label>Contraseña:
-                                    <input name="password" type="password" aria-describedby="passwordHelpText" />
-                                </label>
-                                <a class="help-text" id="passwordhelp" href="{% url 'password_reset' %}">¿Olvidó la contraseña?</a>
-                            </div>
-                            <div class="medium-3"></div>
-                        </div>
-                        <br />
-                        <div class="row grid-x grid-padding-x">
-                            <div class="medium-12 cell medium-centered text-center columns">
-                                <button type="submit" class="button">Entrar</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="small-3"></div>
+    <!-- We can now combine rows and columns when there's only one column in that row -->
+    <div class="row medium-8 large-7 columns">
+        <div class="blog-post">
+            <h3>Awesome blog post title <small>3/6/2015</small></h3>
+            <img class="thumbnail" src="https://placehold.it/850x350">
+            <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.
+                Nulla at nulla justo, eget luctus.</p>
+            <div class="callout">
+                <ul class="menu simple">
+                    <li><a href="#">Author: Mike Mikers</a></li>
+                    <li><a href="#">Comments: 3</a></li>
+                </ul>
             </div>
         </div>
-    </form>
+
+        <div class="blog-post">
+            <h3>Awesome blog post title <small>3/6/2015</small></h3>
+            <img class="thumbnail" src="https://placehold.it/850x350">
+            <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.
+                Nulla at nulla justo, eget luctus.</p>
+            <div class="callout">
+                <ul class="menu simple">
+                    <li><a href="#">Author: Mike Mikers</a></li>
+                    <li><a href="#">Comments: 3</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="blog-post">
+            <h3>Awesome blog post title <small>3/6/2015</small></h3>
+            <img class="thumbnail" src="https://placehold.it/850x350">
+            <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.
+                Nulla at nulla justo, eget luctus.</p>
+            <div class="callout">
+                <ul class="menu simple">
+                    <li><a href="#">Author: Mike Mikers</a></li>
+                    <li><a href="#">Comments: 3</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="blog-post">
+            <h3>Awesome blog post title <small>3/6/2015</small></h3>
+            <img class="thumbnail" src="https://placehold.it/850x350">
+            <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.
+                Nulla at nulla justo, eget luctus.</p>
+            <div class="callout">
+                <ul class="menu simple">
+                    <li><a href="#">Author: Mike Mikers</a></li>
+                    <li><a href="#">Comments: 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row column">
+        <ul class="pagination" role="navigation" aria-label="Pagination">
+            <li class="disabled">Previous</li>
+            <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+            <li><a href="#" aria-label="Page 2">2</a></li>
+            <li><a href="#" aria-label="Page 3">3</a></li>
+            <li><a href="#" aria-label="Page 4">4</a></li>
+            <li class="ellipsis"></li>
+            <li><a href="#" aria-label="Page 12">12</a></li>
+            <li><a href="#" aria-label="Page 13">13</a></li>
+            <li><a href="#" aria-label="Next page">Next</a></li>
+        </ul>
+    </div>
+    {% endblock %}
+    {% block extrajs %}
     {% endblock %}
 </body>
 

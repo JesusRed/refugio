@@ -7,55 +7,70 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}REFUGIO{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/foundation.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+  <link rel="shortcut icon" href="https://img.icons8.com/fluent/48/000000/pet-commands-summon.png" type="imagex-icon" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <title>{% block title %} PetFugio {% endblock %}</title>
+  <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css" />
+  <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 
 <body>
   {% block navbar%}
-  <div class="grid-container">
+  <div class="top-bar-container" data-sticky-container>
     <div class="top-bar">
       <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text">Home</li>
-          <li>
+        <ul id="buttonsheader" class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">PetFugio</li>
+          <li class="has-submenu">
             <a href="#">Mascotas</a>
-            <ul class="menu vertical">
-              <li><a href="{% url 'mascota:mascota_crear' %}">Registrar</a></li>
-              <li><a href="{% url 'mascota:mascota_listar' %}">Listar</a></li>
+            <ul class="submenu menu vertical">
+              <li>
+                <a href="{% url 'mascota:mascota_crear' %}">Registrar</a>
+              </li>
+              <li>
+                <a href="{% url 'mascota:mascota_listar' %}">Listar</a>
+              </li>
             </ul>
           </li>
-          <li>
+          <li class="has-submenu">
             <a href="#">Adopciones</a>
-            <ul class="menu vertical">
-              <li><a href="{% url 'adopcion:solicitud_crear' %}">Solicitar</a></li>
-              <li><a href="{% url 'adopcion:solicitud_listar' %}">Listar Solicitudes</a></li>
+            <ul class="submenu menu vertical">
+              <li>
+                <a href="{% url 'adopcion:solicitud_crear' %}">Solicitar</a>
+              </li>
+              <li>
+                <a href="{% url 'adopcion:solicitud_listar' %}">Listar Solicitudes</a>
+              </li>
             </ul>
           </li>
         </ul>
       </div>
       <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li><a href="http://codigofacilito.com" onclick="pageTracker._link(this.href); return false;">Codigo Facilito</a></li>
+        <ul id="buttonsheader" class="dropdown menu" data-dropdown-menu>
           <li>
+            <a href="http://codigofacilito.com" onclick="pageTracker._link(this.href); return false;">Codigo
+              Facilito</a>
+          </li>
+          <li class="has-submenu">
             <a href="#">Opciones</a>
-            <ul class="menu vertical">
+            <ul class="submenu menu vertical">
               <li><a href="{% url 'logout' %}">Salir</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
-    {% endblock %} {% block content %}
-    <h4>Bloque de contenido</h4>
-    {% endblock %} {% block footer %} {% endblock %}
   </div>
+  {% endblock %} {% block content %}
+  <h4>Bloque de contenido</h4>
+  {% endblock %} {% block footer %} {% endblock %}
 
-  <script src="{% static 'js/vendor/jquery.js' %}"></script>
-  <script src="{% static 'js/vendor/what-input.js' %}"></script>
-  <script src="{% static 'js/vendor/foundation.min.js' %}"></script>
-  <script src="{% static 'js/app.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
   {% block extrajs %} {% endblock %}
 </body>
 

@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView, logout_then_login
 
 urlpatterns = [
+    url(r'^$', LoginView.as_view(template_name='index.html'), name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^mascota/', include(('apps.mascota.urls', 'mascota'), namespace='mascota')),
     url(r'^adopcion/', include(('apps.adopcion.urls', 'adopcion'), namespace='adopcion')),
     url(r'^usuario/', include(('apps.usuario.urls', 'usuario'), namespace='usuario')),
-    url(r'^accounts/login/', LoginView.as_view(template_name='index.html'), name='login'),
+    url(r'^accounts/login/', LoginView.as_view(template_name='registration/index.html'), name='login'),
     url(r'^logout/', logout_then_login, name='logout'),
     url(r'^reset/password_reset$', PasswordResetView.as_view(template_name='registration/password_reset_form.html',
                                                              email_template_name='registration/password_reset_email.html'), name='password_reset'),

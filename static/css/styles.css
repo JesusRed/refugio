@@ -1,0 +1,21 @@
+#buttonsheader, .top-bar{
+  background-color: #638b7a;
+  color: azure;
+}
+
+.submenu li{
+   background-color: #587c6d;
+}
+
+a{
+    color: white;
+}
+
+a:hover, a:visited, a:link, a:active{
+    color: #e6e6e6;
+    
+}
+
+.dropdown.menu .has-submenu.is-down-arrow>a::after{
+    border-color: #e6e6e6 transparent transparent;
+}
