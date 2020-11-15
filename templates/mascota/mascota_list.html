@@ -10,57 +10,60 @@
 
 <body>
   {% block content %}
-  <br />
-  <table class="hover unstriped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th width="200">Nombre</th>
-        <th>Sexo</th>
-        <th>Edad</th>
-        <th>Fecha de rescate</th>
-        <th width="200">Adoptante</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        {% if object_list %} {% for mascota in object_list %}
-        <td>{{mascota.id}}</td>
-        <td>{{mascota.nombre}}</td>
-        <td>{{mascota.sexo}}</td>
-        <td>{{mascota.edad_aproximada}}</td>
-        <td>{{mascota.fecha_rescate}}</td>
-        <td>{{mascota.persona.nombre}} {{mascota.persona.apellidos}}</td>
-        <td>
-          <a class="button warning" href="{% url 'mascota:mascota_editar' mascota.id %}">Editar</a>
-          <a class="button alert" href="{% url 'mascota:mascota_eliminar' mascota.id %}">Eliminar</a>
-        </td>
-      </tr>
-      {% endfor %} {% else %}
-      <h1>NO hay registros</h1>
-      {% endif %}
-    </tbody>
-  </table>
+  <br/>
 
-  <nav aria-label="Pagination">
-    <ul class="pagination text-center">
-      <li>
-        {% if page_obj.has_previous %}
-      <li class="pagination-previous">
-        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-      </li>
-      {% endif %}
-      </li>
-      <li>
-        {% if page_obj.has_next %}
-      <li class="pagination-next">
-        <a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">Next</a>
-      </li>
-      {% endif %}
-      </li>
-    </ul>
-  </nav>
+  <div class="grid-container">
+    <table class="hover unstriped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th width="200">Nombre</th>
+          <th>Sexo</th>
+          <th>Edad</th>
+          <th>Fecha de rescate</th>
+          <th width="200">Adoptante</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% if object_list %} {% for mascota in object_list %}
+          <td>{{mascota.id}}</td>
+          <td>{{mascota.nombre}}</td>
+          <td>{{mascota.sexo}}</td>
+          <td>{{mascota.edad_aproximada}}</td>
+          <td>{{mascota.fecha_rescate}}</td>
+          <td>{{mascota.persona.nombre}} {{mascota.persona.apellidos}}</td>
+          <td>
+            <a class="button warning" href="{% url 'mascota:mascota_editar' mascota.id %}">Editar</a>
+            <a class="button alert" href="{% url 'mascota:mascota_eliminar' mascota.id %}">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %} {% else %}
+        <h1>NO hay registros</h1>
+        {% endif %}
+      </tbody>
+    </table>
+  
+    <nav aria-label="Pagination">
+      <ul class="pagination text-center">
+        <li>
+          {% if page_obj.has_previous %}
+        <li class="pagination-previous">
+          <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
+        {% endif %}
+        </li>
+        <li>
+          {% if page_obj.has_next %}
+        <li class="pagination-next">
+          <a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">Next</a>
+        </li>
+        {% endif %}
+        </li>
+      </ul>
+    </nav>
+  </div>
 
   {% endblock %}
 </body>

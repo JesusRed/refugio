@@ -63,6 +63,6 @@ body {
 }
 
 .button, .button:hover, .button:hover, .button:focus{
-  border-radius: 2500px;
+  border-radius: 1500px;
   background-color: #638b7a;
 }

@@ -11,38 +11,61 @@
 <body>
 	{% block content %}
 	<br>
-	<table class="hover unstriped">
-		<thead>
-			<tr>
-				<td>No. Solicitud</td>
-				<td>Adoptante</td>
-				<td>No. Mascotas</td>
-				<td>Razones</td>
-				<td>Acciones</td>
-			</tr>
 
-		</thead>
-		<tbody>
-			{% if object_list %}
-			{% for solicitud in object_list %}
-			<tr>
-				<td>{{ solicitud.id }}</td>
-				<td>{{ solicitud.persona.nombre }} {{solicitud.persona.apellidos}}</td>
-				<td>{{ solicitud.numero_mascotas }}</td>
-				<td>{{ solicitud.razones }}</td>
+	<div class="grid-container">
+		<table class="hover unstriped">
+			<thead>
+				<tr>
+					<td>No. Solicitud</td>
+					<td>Adoptante</td>
+					<td>No. Mascotas</td>
+					<td>Razones</td>
+					<td>Acciones</td>
+				</tr>
+	
+			</thead>
+			<tbody>
+				{% if object_list %}
+				{% for solicitud in object_list %}
+				<tr>
+					<td>{{ solicitud.id }}</td>
+					<td>{{ solicitud.persona.nombre }} {{solicitud.persona.apellidos}}</td>
+					<td>{{ solicitud.numero_mascotas }}</td>
+					<td>{{ solicitud.razones }}</td>
+	
+					<td>
+						<a class="button warning" href="{% url 'adopcion:solicitud_editar' solicitud.id %}">Editar</a>
+						<a class="button alert" href="{% url 'adopcion:solicitud_eliminar' solicitud.id %}">Eliminar</a>
+					</td>
+				</tr>
+				{% endfor %}
+	
+				{% else %}
+				<h1>No hay registros de solicitudes</h1>
+				{% endif %}
+			</tbody>
+		</table>
 
-				<td>
-					<a class="button warning" href="{% url 'adopcion:solicitud_editar' solicitud.id %}">Editar</a>
-					<a class="button alert" href="{% url 'adopcion:solicitud_eliminar' solicitud.id %}">Eliminar</a>
-				</td>
-			</tr>
-			{% endfor %}
+		<nav aria-label="Pagination">
+			<ul class="pagination text-center">
+			  <li>
+				{% if page_obj.has_previous %}
+			  <li class="pagination-previous">
+				<a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+			  </li>
+			  {% endif %}
+			  </li>
+			  <li>
+				{% if page_obj.has_next %}
+			  <li class="pagination-next">
+				<a href="?page={{ page_obj.next_page_number }}" aria-label="Next page">Next</a>
+			  </li>
+			  {% endif %}
+			  </li>
+			</ul>
+		  </nav>
+	</div>
 
-			{% else %}
-			<h1>No hay registros de solicitudes</h1>
-			{% endif %}
-		</tbody>
-	</table>
 
 	{% endblock%}
 </body>

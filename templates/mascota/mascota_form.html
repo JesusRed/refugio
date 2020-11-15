@@ -1,20 +1,28 @@
 {% extends 'base/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
 </head>
+
 <body>
-    
+
     {% block content %}
     <form action="" method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit button" class="success button">Guardar</button>
+        <div class="grid-container">
+            <br>
+            {{form.as_p}}
+            <div class="medium-12 cell medium-centered text-center columns">
+                <button type="submit" class="success button">Guardar</button>
+            </div>
+        </div>
     </form>
     {% endblock %}
 
 </body>
+
 </html>
