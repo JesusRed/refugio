@@ -61,7 +61,7 @@ class MascotaList(ListView):
     model = Mascota
     template_name = 'mascota/mascota_list.html'
     queryset = Mascota.objects.order_by('id')
-    paginate_by = 1
+    paginate_by = 2
 
 
 class MascotaCreate(CreateView):
