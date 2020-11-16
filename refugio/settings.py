@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'refugio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'refugio',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'galahad',
-        'HOST': 'localhost',
+        'PASSWORD': 'jesus1933',
+        'HOST': 'refugio.cqyiwd6kmgfl.us-east-1.rds.amazonaws.com',
         'PORT': 5432,
     }
 }
